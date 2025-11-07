@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dharan Homestay - Scenic Rentals for Groups & Families</title>
+    <meta name="description" content="Find beautiful, fully-furnished homestays and houses for rent in Dharan and Vedetar. Perfect for groups, families, and parties.">
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- All styles are in this <style> tag -->
+    <style>
+        /* --- CSS Variables (Color Palette) --- */
+        :root {
+            --color-primary: #064E3B; /* Dark Green (Nature, Luxury) */
+            --color-primary-light: #065F46;
+            --color-secondary: #D97706; /* Warm Amber (Welcoming) */
+            --color-secondary-light: #FBBF24;
+            --color-bg: #F9FAFB; /* Off-white */
+            --color-card-bg: #FFFFFF;
+            --color-text: #1F2937; /* Dark Gray */
+            --color-text-light: #4B5563;
+            --color-white: #FFFFFF;
+            --color-border: #E5E7EB;
+            --color-error: #DC2626;
+            --color-success: #16A34A;
+        }
+
+        /* --- Global Reset & Base --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        /* --- Utility Classes --- */
+        .hidden {
+            display: none;
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3 {
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--color-text-light);
+        }
+
+        a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Header & Navigation --- */
+        .header {
+            background-color: var(--color-white);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--color-text);
+            font-weight: 600;
+        }
+        .nav-links a:hover {
+            color: var(--color-secondary);
+            text-decoration: none;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1600x800/228B22/cccccc?text=Scenic+Dharan+View') no-repeat center center/cover;
+            color: var(--color-white);
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            color: var(--color-white);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--color-white);
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-secondary-light);
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        /* --- Sections --- */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* --- Features Section --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            background-color: var(--color-card-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .feature-item svg {
+            width: 48px;
+            height: 48px;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.25rem;
+        }
+
+        /* --- Listings Section --- */
+        #listings {
+            background-color: #ECFDF5; /* Light Green BG */
+        }
+        
+        .listings-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .listing-card {
+            background-color: var(--color-card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .listing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .listing-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .listing-card-content {
+            padding: 1.5rem;
+        }
+        
+        .listing-card-content h3 {
+            font-size: 1.4rem;
+        }
+        
+        .listing-card-content p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+        
+        /* --- Loading Spinner --- */
+        .loader-container {
+            text-align: center;
+            padding: 4rem;
+        }
+        .loader {
+            border: 5px solid var(--color-border);
+            border-top: 5px solid var(--color-primary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* --- Inquiry Form Section --- */
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--color-card-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            font-size: 1.1rem;
+        }
+        
+        .btn-submit:hover {
+            background-color: var(--color-primary-light);
+            text-decoration: none;
+        }
+        
+        .btn-submit:disabled {
+            background-color: var(--color-text-light);
+            cursor: not-allowed;
+        }
+        
+        .form-message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        
+        .form-message.success {
+            background-color: #D1FAE5;
+            color: var(--color-primary);
+            border: 1px solid var(--color-primary);
+        }
+        
+        .form-message.error {
+            background-color: #FEE2E2;
+            color: var(--color-error);
+            border: 1px solid var(--color-error);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer p {
+            color: var(--color-bg);
+            margin: 0;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simple hide for demo, could be a burger menu */
+            }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            .form-container { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="container navbar">
+            <div class="logo">Dharan Homestay</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#listings">Listings</a></li>
+                <li><a href="#contact">Inquire Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Your Scenic Getaway in Dharan & Vedetar</h1>
+                <p>Fully-furnished houses for groups, families, and events. Discover your perfect homestay.</p>
+                <a href="#contact" class="btn btn-primary">Inquire Now</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="section">
+            <div class="container">
+                <h2 class="section-title">Why Choose Us?</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <!-- SVG icon for "Home" -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                        </svg>
+                        <h3>Fully Furnished</h3>
+                        <p>Move-in ready homes with all the amenities you need for a comfortable stay.</p>
+                    </div>
+                    <div class="feature-item">
+                        <!-- SVG icon for "Users" -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 00-12.728 0M12 8.25c-1.35 0-2.438.86-2.438 1.95 0 1.09.888 1.95 2.438 1.95 1.55 0 2.438-.86 2.438-1.95 0-1.09-.888-1.95-2.438-1.95zM12 15c-2.22 0-4.24.8-5.832 2.148M15.75 12c.368 0 .668.08.938.218a5.19 5.19 0 01.374.28c.16.148.29.32.396.51.106.19.156.4.156.612 0 .212-.05.422-.156.612a.993.993 0 01-.396.51c-.106.19-.236.362-.396.51a5.19 5.19 0 01-.374.28c-.27.138-.57.218-.938.218m-7.5 0c.368 0 .668.08.938.218a5.19 5.19 0 01.374.28c.16.148.29.32.396.51.106.19.156.4.156.612 0 .212-.05.422-.156.612a.993.993 0 01-.396.51c-.106.19-.236.362-.396.51a5.19 5.19 0 01-.374.28c-.27.138-.57.218-.938.218m0-3.182c.368 0 .668.08.938.218a5.19 5.19 0 01.374.28c.16.148.29.32.396.51.106.19.156.4.156.612 0 .212-.05.422-.156.612a.993.993 0 01-.396.51c-.106.19-.236.362-.396.51a5.19 5.19 0 01-.374.28c-.27.138-.57.218-.938.218" />
+                        </svg>
+                        <h3>Perfect for Groups</h3>
+                        <p>Spacious properties ideal for family vacations, corporate retreats, and large groups.</p>
+                    </div>
+                    <div class="feature-item">
+                        <!-- SVG icon for "Cake" -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6H6a6 6 0 006 6z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25c.995 0 1.97.08 2.914.236A6.99 6.99 0 0118.75 12c0 1.294-.364 2.508-.99 3.516A6.987 6.987 0 0112 18.75c-1.294 0-2.508-.364-3.516-.99A6.987 6.987 0 015.25 12c0-1.34.39-2.582 1.086-3.642A6.99 6.99 0 0112 8.25z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3.75c0 .32.016.634.048.942A6.98 6.98 0 0112 4.5c1.34 0 2.582.39 3.642 1.086.032-.308.048-.622.048-.942 0-.32-.016-.634-.048-.942A6.98 6.98 0 0012 3c-1.34 0-2.582.39-3.642 1.086-.032.308-.048.622-.048.942z" />
+                        </svg>
+                        <h3>Events & Parties</h3>
+                        <p>Host your next birthday party or special event in one of our beautiful, private spaces.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Listings Section -->
+        <section id="listings" class="section">
+            <div class="container">
+                <h2 class="section-title">Our Properties</h2>
+                <div id="listings-container" class="listings-container">
+                    <!-- Loading Spinner -->
+                    <div class="loader-container" id="loader">
+                        <div class="loader"></div>
+                        <p>Loading properties...</p>
+                    </div>
+                    <!-- Listings will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Inquiry Form Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Inquire Now</h2>
+                <p class="section-title" style="margin-top: -2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Have questions or want to book? Fill out the form below and we'll get back to you shortly.
+                </p>
+                <div class="form-container">
+                    <form id="inquiry-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number (Optional)</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="inquiryType">Type of Inquiry</label>
+                            <select id="inquiryType" name="inquiryType" required>
+                                <option value="">-- Select one --</option>
+                                <option value="Group Stay">Group Stay</option>
+                                <option value="Family Vacation">Family Vacation</option>
+                                <option value="Birthday Party">Birthday Party</option>
+                                <option value="Commercial Space">Commercial Space</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your needs, desired dates, group size, etc." required></textarea>
+                        </div>
+                        <button type="submit" id="submit-button" class="btn btn-submit">Send Inquiry</button>
+                    </form>
+                    <div id="form-message" class="form-message hidden"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Dharan Homestay. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- All JavaScript is in this <script> tag -->
+    <script>
+        // --- CONFIGURATION ---
+        // !! IMPORTANT !!
+        // Replace these with the URLs you get from the README.md setup guide.
+        const CONTENT_SHEET_URL = 'YOUR_CONTENT_SHEET_CSV_URL_HERE';
+        const WEB_APP_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+        
+        // --- DYNAMIC CONTENT LOADER ---
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchListings();
+            
+            const form = document.getElementById('inquiry-form');
+            form.addEventListener('submit', handleFormSubmit);
+        });
+
+        async function fetchListings() {
+            const listingsContainer = document.getElementById('listings-container');
+            const loader = document.getElementById('loader');
+
+            if (CONTENT_SHEET_URL === 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTXFacFmvUHt7pZ4WpDNeawXLqG-5KaS-p6ex_G4uaRJ23Xx2d6Yvwg8Ro3I2n0C0xgtmHX6ccDJ8l5/pub?output=csv') {
+                listingsContainer.innerHTML = `<p style="text-align: center; color: var(--color-error);"><strong>Error:</strong> Content Sheet URL is not configured.</p>`;
+                loader.classList.add('hidden');
+                return;
+            }
+
+            try {
+                const response = await fetch(CONTENT_SHEET_URL);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const csvText = await response.text();
+                const listings = parseCSV(csvText);
+
+                // Clear loader
+                listingsContainer.innerHTML = '';
+                
+                if (listings.length === 0) {
+                     listingsContainer.innerHTML = `<p style="text-align: center;">No properties are listed at this time.</p>`;
+                }
+
+                // Populate listings
+                listings.forEach(listing => {
+                    const card = document.createElement('article');
+                    card.className = 'listing-card';
+                    card.innerHTML = `
+                        <img src="${listing.imageUrl}" alt="${listing.title}" onerror="this.src='https://placehold.co/600x400/eeeeee/cccccc?text=Image+Not+Found';">
+                        <div class="listing-card-content">
+                            <h3>${listing.title}</h3>
+                            <p>${listing.description}</p>
+                        </div>
+                    `;
+                    listingsContainer.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error('Error fetching listings:', error);
+                listingsContainer.innerHTML = `<p style="text-align: center; color: var(--color-error);"><strong>Error:</strong> Could not load properties. Please check the console for details.</p>`;
+            }
+        }
+
+        /**
+         * A simple CSV parser.
+         * Assumes the first row is headers and data doesn't contain escaped commas.
+         */
+        function parseCSV(text) {
+            const lines = text.split(/\r\n|\n/);
+            if (lines.length < 2) return [];
+            
+            const headers = lines[0].split(',');
+            const data = [];
+            
+            for (let i = 1; i < lines.length; i++) {
+                if (!lines[i]) continue;
+                
+                const values = lines[i].split(',');
+                const entry = {};
+                
+                for (let j = 0; j < headers.length; j++) {
+                    const header = headers[j].trim();
+                    const value = values[j] ? values[j].trim() : '';
+                    entry[header] = value;
+                }
+                data.push(entry);
+            }
+            return data;
+        }
+
+        // --- FORM SUBMISSION HANDLER ---
+        async function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const submitButton = document.getElementById('submit-button');
+            const formMessage = document.getElementById('form-message');
+
+            if (WEB_APP_URL === 'https://script.google.com/macros/s/AKfycby_YhzAdvcMoiFyHxyqEQj5zDmhqxmykO3rVU-FdV9B8ErXOwB6x47-AzxdKpxthARpDw/exec') {
+                showFormMessage('<strong>Form Error:</strong> The inquiry form is not configured.', 'error');
+                return;
+            }
+
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            formMessage.classList.add('hidden');
+
+            // Create data object
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            try {
+                const response = await fetch(WEB_APP_URL, {
+                    method: 'POST',
+                    mode: 'cors', // Required for cross-domain request to Apps Script
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+                
+                const result = await response.json();
+
+                if (result.success) {
+                    showFormMessage('Thank you for your inquiry! We will be in touch soon.', 'success');
+                    form.reset();
+                } else {
+                    throw new Error(result.error || 'Unknown error occurred.');
+                }
+
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                showFormMessage(`<strong>Error:</strong> Could not send inquiry. ${error.message}`, 'error');
+            } finally {
+                // Re-enable button
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Inquiry';
+            }
+        }
+        
+        function showFormMessage(message, type) {
+            const formMessage = document.getElementById('form-message');
+            formMessage.innerHTML = message;
+            formMessage.className = `form-message ${type}`;
+        }
+    </script>
+</body>
+</html>
