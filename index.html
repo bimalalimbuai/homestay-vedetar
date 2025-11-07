@@ -498,7 +498,7 @@
         // !! IMPORTANT !!
         // Replace these with the URLs you get from the README.md setup guide.
         const CONTENT_SHEET_URL = 'YOUR_CONTENT_SHEET_CSV_URL_HERE';
-        const WEB_APP_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+        const WEB_APP_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTXFacFmvUHt7pZ4WpDNeawXLqG-5KaS-p6ex_G4uaRJ23Xx2d6Yvwg8Ro3I2n0C0xgtmHX6ccDJ8l5/pub?output=csv';
         
         // --- DYNAMIC CONTENT LOADER ---
         document.addEventListener('DOMContentLoaded', () => {
@@ -512,7 +512,7 @@
             const listingsContainer = document.getElementById('listings-container');
             const loader = document.getElementById('loader');
 
-            if (CONTENT_SHEET_URL === 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTXFacFmvUHt7pZ4WpDNeawXLqG-5KaS-p6ex_G4uaRJ23Xx2d6Yvwg8Ro3I2n0C0xgtmHX6ccDJ8l5/pub?output=csv') {
+            if (CONTENT_SHEET_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
                 listingsContainer.innerHTML = `<p style="text-align: center; color: var(--color-error);"><strong>Error:</strong> Content Sheet URL is not configured.</p>`;
                 loader.classList.add('hidden');
                 return;
